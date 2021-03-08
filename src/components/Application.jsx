@@ -46,7 +46,7 @@ class Application extends Component {
 
     return (
       <main className="Application">
-        <h1>Think Piece</h1>
+        <h1>Live Notes</h1>
         <Posts posts={posts} onCreate={this.handleCreate} />
       </main>
     );
