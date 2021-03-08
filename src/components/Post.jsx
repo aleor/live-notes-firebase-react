@@ -2,7 +2,7 @@ import React from 'react';
 
 import moment from 'moment';
 
-const Post = ({ title, content, user, createdAt, stars, comments }) => {
+const Post = ({ title, content, user, createdAt, stars, comments, id, onRemove }) => {
   return (
     <article className="Post">
       <div className="Post--content">
@@ -19,7 +19,7 @@ const Post = ({ title, content, user, createdAt, stars, comments }) => {
           </p>
           <p>
             <span role="img" aria-label="comments">
-              🙊
+              📝
             </span>
             {comments}
           </p>
@@ -28,7 +28,7 @@ const Post = ({ title, content, user, createdAt, stars, comments }) => {
         </div>
         <div>
           <button className="star">Star</button>
-          <button className="delete">Delete</button>
+          <button className="delete" onClick={() => onRemove(id)}>Delete</button>
         </div>
       </div>
     </article>
