@@ -1,0 +1,1 @@
+# Live Note app (Firebase & React)
