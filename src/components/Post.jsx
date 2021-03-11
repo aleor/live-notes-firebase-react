@@ -29,8 +29,8 @@ const Post = ({ title, content, user, createdAt, stars, comments, id }) => {
             </span>
             {comments}
           </p>
-          <p>Posted by {user.displayName}</p>
-          <p>{moment(createdAt.toDate()).calendar()}</p>
+          <p>Posted by {user?.displayName}</p>
+          <p>{moment(createdAt?.toDate()).calendar()}</p>
         </div>
         <div>
           <button className="star" onClick={star}>Star</button>
@@ -39,21 +39,6 @@ const Post = ({ title, content, user, createdAt, stars, comments, id }) => {
       </div>
     </article>
   );
-};
-
-Post.defaultProps = {
-  title: 'Another Meaningful Note',
-  content:
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus est aut dolorem, dolor voluptatem assumenda possimus officia blanditiis iusto porro eaque non ab autem nihil! Alias repudiandae itaque quo provident.',
-  user: {
-    id: '123',
-    displayName: 'Some Other User',
-    email: 'some_other_user@mailinator.com',
-    photoURL: '',
-  },
-  createdAt: new Date(),
-  stars: 0,
-  comments: 0,
 };
 
 export default Post;
