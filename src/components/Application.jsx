@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {auth, firestore} from '../firebase';
+import {auth, createUserProfileDocument, firestore} from '../firebase';
 import { collectDocsWithIds } from '../utils';
 import Posts from './Posts';
 import Authentication from './Authentication';
@@ -20,7 +20,8 @@ class Application extends Component {
       this.setState({posts});
     });
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      const user = await createUserProfileDocument(userAuth);
       this.setState({ user });
     });
   }
