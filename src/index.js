@@ -1,9 +1,17 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
-import './index.scss';
+import "./index.scss";
 
-import Application from './components/Application';
-import PostsProvider from './providers/PostsProvider';
+import Application from "./components/Application";
+import PostsProvider from "./providers/PostsProvider";
+import UserProvider from "./providers/UserProvider";
 
-render(<PostsProvider><Application /></PostsProvider>, document.getElementById('root'));
+render(
+  <UserProvider>
+    <PostsProvider>
+      <Application />
+    </PostsProvider>
+  </UserProvider>,
+  document.getElementById("root")
+);
